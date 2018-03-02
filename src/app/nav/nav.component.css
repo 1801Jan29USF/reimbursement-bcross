@@ -76,3 +76,12 @@ body, html {
   	top: 0px;
   	z-index:1;
 }
+
+.navbar{
+	border-radius: 0px;
+	background-color:#30343F!important;
+}
+
+.nav-link{
+	padding-left: 5rem;
+}

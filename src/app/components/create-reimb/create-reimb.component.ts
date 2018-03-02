@@ -24,20 +24,28 @@ export class CreateReimbComponent implements OnInit {
   }
 
   submitReimbursement() {
-    this.client.post('http://localhost:8080/Reimbursement-System/reimbursement', this.reimbursement,
-      { withCredentials: true })
-      .subscribe(
-        (succ) => {
-          alert('submit successful');
-          this.router.navigateByUrl('reimbs');
-        },
-        (err) => {
-          alert('failed to submit reimbursement');
-        }
+    if (this.reimbursement.amount < 0) {
+      alert('Amount must be greater than zero');
+    } else if (this.reimbursement.description === '') {
+      alert('Description cannot be left empty!');
+    } else {
 
 
-      );
+      this.client.post('http://localhost:8080/Reimbursement-System/reimbursement', this.reimbursement,
+        { withCredentials: true })
+        .subscribe(
+          (succ) => {
+            alert('submit successful');
+            this.router.navigateByUrl('reimbs');
+          },
+          (err) => {
+            alert('failed to submit reimbursement');
+          }
 
+
+        );
+
+    }
   }
 
 }
