@@ -36,7 +36,7 @@ export class CreateReimbComponent implements OnInit {
         .subscribe(
           (succ) => {
             alert('submit successful');
-            this.router.navigateByUrl('reimbs');
+            this.router.navigateByUrl('reimbs/pending');
           },
           (err) => {
             alert('failed to submit reimbursement');

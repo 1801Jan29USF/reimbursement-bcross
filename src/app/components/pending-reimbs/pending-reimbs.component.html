@@ -21,16 +21,26 @@
                     <td>{{reimbursement.description}}</td>
                     <td>{{reimbursement.author_id}}</td>
                     <!-- <td>{{reimbursement.reimb_type_id}}</td> -->
-                    <div *ngIf="reimbursement.reimb_type_id == 0"><td>Lodging</td></div>
-                    <div *ngIf="reimbursement.reimb_type_id == 1"><td>Travel</td></div>
-                    <div *ngIf="reimbursement.reimb_type_id == 2"><td>Food</td></div>
-                    <div *ngIf="reimbursement.reimb_type_id == 3"><td>Other</td></div>
-                    <td><form class="managerbutton" *ngIf="cookieManagerVal.manager === 1 && cookieManagerVal.id != reimbursement.author_id">
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="submit" (click)="updateStatus(reimbursement, 1)" value = 1 name="approve" class="btn btn-secondary btn-sm">Approve</button>
-                            <button type="submit" (click)="updateStatus(reimbursement, 2)" value = 2 name="deny" class="btn btn-secondary btn-sm">Deny</button>
-                        </div>
-                    </form></td>
+                    <div *ngIf="reimbursement.reimb_type_id == 0">
+                        <td>Lodging</td>
+                    </div>
+                    <div *ngIf="reimbursement.reimb_type_id == 1">
+                        <td>Travel</td>
+                    </div>
+                    <div *ngIf="reimbursement.reimb_type_id == 2">
+                        <td>Food</td>
+                    </div>
+                    <div *ngIf="reimbursement.reimb_type_id == 3">
+                        <td>Other</td>
+                    </div>
+                    <td>
+                        <form class="managerbutton" *ngIf="cookieManagerVal.manager === 1 && cookieManagerVal.id != reimbursement.author_id">
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="submit" (click)="updateStatus(reimbursement, 1)" value=1 name="approve" class="btn btn-secondary btn-sm">Approve</button>
+                                <button type="submit" (click)="updateStatus(reimbursement, 2)" value=2 name="deny" class="btn btn-secondary btn-sm">Deny</button>
+                            </div>
+                        </form>
+                    </td>
 
 
                 </ng-container>

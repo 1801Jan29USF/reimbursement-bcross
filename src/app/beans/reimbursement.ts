@@ -10,7 +10,7 @@ export class Reimbursement {
     type: number;
 
     constructor(id: number = 0, amount: number = 0, date_submitted: Date = null, date_resolved: Date = null,
-        description: string = '', author: number = 0, resolver: number = 0, status: number,
+        description: string = '', author: number = 0, resolver: number, status: number,
         type: number) {
         this.r_id = id;
         this.amount = amount;

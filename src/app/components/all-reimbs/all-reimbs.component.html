@@ -23,8 +23,15 @@
                     <td>{{reimbursement.resolved | date:'fullDate'}}</td>
                     <td>{{reimbursement.description}}</td>
                     <td>{{reimbursement.author_id}}</td>
-                    <td>{{reimbursement.resolver_id}}</td>
-                    <td>{{reimbursement.reimb_status_id}}</td>
+                    <!-- <td>{{reimbursement.resolver_id}}</td> -->
+                    <td *ngIf="reimbursement.resolver_id != 0 else b">{{reimbursement.resolver_id}}</td>
+                    <ng-template #b>
+                        <td>N/A</td>
+                    </ng-template>
+                    <!-- <td>{{reimbursement.reimb_status_id}}</td> -->
+                    <td *ngIf="reimbursement.reimb_status_id == 0"><button class="btn btn-warning">Pending</button></td>
+                    <td *ngIf="reimbursement.reimb_status_id == 1"><button class="btn btn-success">Approved</button></td>
+                    <td *ngIf="reimbursement.reimb_status_id == 2"><button class="btn btn-danger">Denied</button></td>
                     <!-- <td>{{reimbursement.reimb_type_id | }}</td> -->
                     <div *ngIf="reimbursement.reimb_type_id == 0"><td>Lodging</td></div>
                     <div *ngIf="reimbursement.reimb_type_id == 1"><td>Travel</td></div>
